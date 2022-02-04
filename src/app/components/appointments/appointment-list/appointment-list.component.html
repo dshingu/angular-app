@@ -1,0 +1,36 @@
+<form action="" method="post">
+    <table class="table table-sm" id="appointments-table">
+        <thead>
+            <tr>
+                <th class="appointment-checkbox"><input type="checkbox" value="all" (change)="onSelectAll($event)" class="form-check-input"/></th>
+                <th class="appointment-nudge align-middle"><a><i class="fas fa-redo-alt"></i></a></th>
+                <th colspan="2"><a *ngIf="selected.length > 0"><i class="fas fa-trash"></i></a></th>
+                <th class="text-end" colspan="2">
+                     <button class="btn btn-success" [disabled]="!verified" (click)="OnAddAppointment()"><span>+</span> Add Appointment</button>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr (click)="OnViewAppointment(appointment.id)" *ngFor="let appointment of appointments; index as key">
+                <td class="appointment-checkbox align-middle">
+                    <input type="checkbox" [value]="appointment.id" class="appointment-row-checkbox form-check-input" (change)="onSelected($event)" />
+                </td>
+                <td class="appointment-nudge align-middle">
+                    <a><i [ngClass]="{'fas':appointment.remind_me, 'far': !appointment.remind_me}" class="theme-normal fa-bell"></i></a>
+                </td>
+                <td valign="middle" class="appointment-info" colspan="2">
+                    <p class="fw-bold appointment-title">{{ appointment.title }}</p>
+                    <p class="appointment-body">{{ appointment.description }}</p>
+                </td>
+                <td valign="middle">{{ appointment.date | date: 'fullDate' }}</td>
+                <td valign="middle">
+                    <div class="btn-group" role="group">
+                        <a class="btn btn-theme btn-theme-default" (click)="OnEditAppointment($event, appointment.id)">Edit</a>
+                        <a class="btn btn-theme btn-theme-danger" (click)="OnDeleteAppointment($event, appointment.id)">Delete</a>
+                    </div>
+                </td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</form>

@@ -1,1 +1,155 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/scss/bootstrap.scss";
+@import "./assets/css/all.min.css";
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #000;
+}
+
+.card {
+    border-width: 2px;
+    .card-header {
+        background: transparent;
+        border-bottom: none;
+    }
+    .card-footer {
+        background: transparent;
+    }
+}
+
+a {
+    .fa, .far, .fas {
+        &.theme-normal {
+            color: #999;
+            &:hover {
+                color: #636262;
+            }
+        }
+    }
+}
+
+#appointments-table {
+    margin: 1em;
+
+    thead {
+        .btn-group {
+            .btn-default {
+                &:hover {
+                    background: #f8f9fa;
+                }
+            }
+        }
+    }
+}
+
+hr.divider {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    &.with-text {
+        &:before {
+            content: 'Not yet a member?';
+            display: inline-block;
+            background: #fff;
+            padding: 0.1rem 1rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        position: relative;
+        border: none;
+        height: 1px;
+        background: #999;
+    }
+}
+
+th.appointment-checkbox, th.appointment-nudge, td.appointment-checkbox, td.appointment-nudge {
+    width: 36px;
+}
+
+td.appointment-info {
+    p {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+td.appointment-info .appointment-body {
+    color: #999;
+}
+
+.form-check-input {
+    border: 2px solid rgba(0, 0, 0, 0.25) !important;
+    border-radius: 0 !important;
+}
+
+.form-check-input:checked {
+    background-color: rgba(0, 0, 0, 0.25) !important;
+}
+
+.btn-theme {
+    margin: 0.6em;
+    font-size: 0.8rem;
+    width: 7rem;
+    border-radius: 0 !important;
+}
+
+.btn-theme.btn-theme-default {
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    color: rgba(0, 0, 0, 0.45);
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.1));
+}
+
+.btn-theme.btn-theme-danger {
+    border: 1px solid rgba(116, 0, 16, 0.65);
+    color:rgba(116, 0, 16, 1);
+    background: linear-gradient(rgba(116, 0, 16, 0.25), rgba(116, 0, 16, 0.45));
+}
+
+.nav {
+    margin: 0;
+    padding: 0;
+
+    &__list {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        width: 100%;
+
+        &__item {
+            padding: 0;
+            margin: 0;
+
+            a {
+
+                &:hover {
+                    background: #c9c9c9;
+                }
+
+                display: block;
+                background: transparent;
+                padding: 08px;
+                color: #000;
+                font-size: 1em;
+                text-decoration: none;
+                width: 100%;
+
+            }
+
+            &--active {
+                background: #ccc;
+            }
+        }
+    }
+}
+
+.title {
+    padding: 0.6em 00;
+}
+

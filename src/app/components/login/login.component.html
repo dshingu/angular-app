@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="row justify-content-center align-items-center">
+    </div>
+    <div class="row justify-content-center align-items-center" style="height:90vh;">
+        <div class="col-md-4">
+            <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+                <div class="card">
+                    <div class="card-header"><h4 class="text-center">Login to Appointment Manager</h4></div>
+                    <div class="card-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p class="text-danger text-center fw-bold">{{ errorMessage }}</p>
+                                </div>
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <input type="text" placeholder="Username or Email Address" class="form-control" name="username" ngModel  />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <input type="password" placeholder="Password" class="form-control" name="password"  ngModel />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="d-grid gap-2">
+                                        <button type="submit" class="btn btn-primary text-uppercase fw-bold" [disabled]="isProcessing">
+                                            <span *ngIf="!isProcessing">Login</span>
+                                            <i class="fas fa-circle-notch fa-spin" *ngIf="isProcessing"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-center">
+                        <hr class="divider with-text" data-content="Not yet a member?" />
+                        <div class="container">
+                            <div class="row justify-content-center align-items-center">
+                                <div class="col-md-10 d-grid gap-2"><a class="btn btn-outline-primary text-uppercase fw-bold" routerLink="/auth/register"><small>Create an account</small></a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

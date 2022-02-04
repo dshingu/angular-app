@@ -1,0 +1,72 @@
+<div class="container">
+        <div class="row justify-content-center align-items-center" style="height:90vh;">
+            <div class="col-md-4">
+                <form (ngSubmit)="onSubmit(form)" #form="ngForm"  novalidate>
+                    <div class="card">
+                        <div class="card-header"><h4 class="text-center">Create Your Account</h4></div>
+                        <div class="card-body">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <input type="text" placeholder="Username" name="username" class="form-control" [class]="{'is-invalid': errors.hasOwnProperty('username')}" ngModel />
+                                            <p [class]="{'invalid-feedback': errors.hasOwnProperty('username')}">{{ errors.hasOwnProperty('username') ? errors.username : '' }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <input type="text" placeholder="Firstname" name="first_name" class="form-control" [class]="{'is-invalid': errors.hasOwnProperty('first_name')}" ngModel />
+                                            <p [class]="{'invalid-feedback': errors.hasOwnProperty('first_name')}">{{ errors.hasOwnProperty('first_name') ? errors.first_name : '' }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <input type="text" placeholder="Lastname" name="last_name" class="form-control" [class]="{'is-invalid': errors.hasOwnProperty('last_name')}"  ngModel />
+                                            <p [class]="{'invalid-feedback': errors.hasOwnProperty('last_name')}">{{ errors.hasOwnProperty('last_name') ? errors.last_name : '' }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <input type="email" placeholder="Your Email Address" class="form-control" name="email" [class]="{'is-invalid': errors.hasOwnProperty('email')}"  ngModel />
+                                                <p [class]="{'invalid-feedback': errors.hasOwnProperty('email')}">{{ errors.hasOwnProperty('email') ? errors.email : '' }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="mb-3">
+                                            <input type="password" placeholder="Password" class="form-control" name="password" [class]="{'is-invalid': errors.hasOwnProperty('password')}"  ngModel />
+                                            <p [class]="{'invalid-feedback': errors.hasOwnProperty('password')}">{{ errors.hasOwnProperty('password') ? errors.password : '' }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="d-grid gap-2">
+                                            <button type="submit" class="btn btn-primary text-uppercase fw-bold" [disabled]="isProcessing">
+                                                <span *ngIf="!isProcessing">Create account</span>
+                                                <i class="fas fa-circle-notch fa-spin" *ngIf="isProcessing"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer text-center">
+                            <hr class="divider with-text" data-content="Already have an account" />
+                            <div class="container">
+                                    <div class="row justify-content-center align-items-center">
+                                        <div class="col-md-10 d-grid gap-2"><a class="btn btn-outline-primary text-uppercase fw-bold" routerLink="/auth/login"><small>Login</small></a></div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    

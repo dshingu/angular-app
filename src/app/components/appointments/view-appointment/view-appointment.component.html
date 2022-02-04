@@ -1,0 +1,34 @@
+<div class="container">
+        <div class="row">
+            <div class="col-md-8 p-t-2">
+                <div [innerHTML]="flash" style="margin-top:0.8em"></div>
+                <h4 class="title"> <a routerLink="/"><i class="fas fa-chevron-left"></i></a> Appointment Detail</h4>
+                <form #form="ngForm" novalidate>
+                    <div class="mb-3">
+                        <label class="form-label" for="appointment-title" >Appointment Title</label>
+                        <input type="text" name="title" class="form-control" id="appointment-title" [value]="appointment.title" disabled readonly [class]="{'is-invalid': errors.hasOwnProperty('title')}" ngModel>
+                        <p [class]="{'invalid-feedback': errors.hasOwnProperty('title')}">{{ errors.hasOwnProperty('title') ? errors.title : '' }}</p>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="appointment-description">Appointment Description</label>
+                        <textarea class="form-control" name="description" id="appointment-description" [value]="appointment.description" disabled readonly  [class]="{'is-invalid': errors.hasOwnProperty('description')}" ngModel></textarea>
+                        <p [class]="{'invalid-feedback': errors.hasOwnProperty('description')}">{{ errors.hasOwnProperty('description') ? errors.description : '' }}</p>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="appointment-date">Appointment Date/Time</label>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input name="date" type="date" disabled readonly  class="form-control" id="appointment-date" [value]="appointment.date" [class]="{'is-invalid': errors.hasOwnProperty('date')}" ngModel>
+                                <p [class]="{'invalid-feedback': errors.hasOwnProperty('date')}">{{ errors.hasOwnProperty('date') ? errors.date : '' }}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <input name="time" type="time" disabled readonly class="form-control" id="appointment-time" [value]="appointment.time" [class]="{'is-invalid': errors.hasOwnProperty('time')}" ngModel>
+                                <p [class]="{'invalid-feedback': errors.hasOwnProperty('time')}">{{ errors.hasOwnProperty('time') ? errors.time : '' }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3"><label for="remind-me"><input type="checkbox" disabled readonly class="form-check-input" name="remind_me" id="remind-me" value="1" [checked]="appointment.remind_me" ngModel /> Remind Me</label></div>
+                </form>
+            </div>
+        </div>
+    </div>
